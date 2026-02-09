@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tentang Emotify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Theme Colors -->
+    <link rel="stylesheet" href="stylesTentang.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-color);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-smile-beam me-2"></i> Emotify
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tentang.html"><i class="fas fa-info-circle me-1"></i>
+                            Tentang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="fw-bold display-5"><i class="fas fa-brain me-2"></i>Tentang Emotify</h1>
+            <p class="lead mt-3">Aplikasi deteksi ekspresi wajah real-time yang berjalan langsung di browser
+                menggunakan Face-API.js.</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <div class="container my-5">
+
+        <!-- Tentang Aplikasi -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow info-card p-4">
+                    <h4 class="fw-bold mb-3"><i class="fas fa-lightbulb me-2"></i>Apa itu Emotify?</h4>
+                    <p class="mb-0">
+                        <strong>Emotify</strong> adalah aplikasi berbasis web yang mampu mendeteksi ekspresi wajah
+                        manusia secara real-time menggunakan webcam.
+                        Aplikasi ini berjalan sepenuhnya di sisi pengguna (client-side) sehingga:
+                    <ul>
+                        <li>Tidak mengirim data wajah ke server</li>
+                        <li>Aman dan menjaga privasi</li>
+                        <li>Bekerja cepat karena proses dilakukan di browser</li>
+                    </ul>
+                    Emotify memanfaatkan teknologi <strong>Face-API.js</strong> (TensorFlow.js), yaitu model machine
+                    learning ringan yang mampu mengenali wajah, titik-titik landmark, dan ekspresi dasar manusia.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teknologi -->
+        <div class="row mb-5">
+            <div class="col-lg-4 mb-3">
+                <div class="card h-100 p-3 shadow">
+                    <h5><i class="fas fa-microchip me-2"></i>Deteksi Wajah</h5>
+                    <p class="small mb-0">
+                        Menggunakan <strong>Tiny Face Detector</strong> – model ringan berbasis TensorFlow.js
+                        yang dirancang untuk performa cepat dan efisien langsung di browser.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-3">
+                <div class="card h-100 p-3 shadow">
+                    <h5><i class="fas fa-map-marker-alt me-2"></i>Landmark Wajah</h5>
+                    <p class="small mb-0">
+                        Emotify mendeteksi <strong>68 titik landmark wajah</strong> untuk memahami struktur wajah secara
+                        presisi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-3">
+                <div class="card h-100 p-3 shadow">
+                    <h5><i class="fas fa-smile me-2"></i>Pengenalan Ekspresi</h5>
+                    <p class="small mb-0">
+                        Menganalisis <strong>7 ekspresi dasar</strong> termasuk: netral, senang, sedih, marah,
+                        takut, terkejut, dan jijik.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fitur Utama -->
+        <div class="mb-5">
+            <h3 class="fw-bold text-center mb-4"><i class="fas fa-star me-2"></i>Fitur Utama</h3>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card shadow p-3 h-100">
+                        <h6><i class="fas fa-video me-2"></i>Real-Time Detection</h6>
+                        <p class="small mb-0">Analisis ekspresi wajah langsung dari kamera Anda dalam hitungan
+                            milidetik.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow p-3 h-100">
+                        <h6><i class="fas fa-shield-alt me-2"></i>Privasi Terjaga</h6>
+                        <p class="small mb-0">Semua pemrosesan dilakukan di perangkat Anda. Tidak ada data wajah yang
+                            dikirim ke server manapun.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow p-3 h-100">
+                        <h6><i class="fas fa-laptop-code me-2"></i>Berbasis Browser</h6>
+                        <p class="small mb-0">Tidak memerlukan instalasi apa pun – cukup gunakan browser modern seperti
+                            Chrome atau Edge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-5">
+            <h3 class="fw-bold text-center mb-4"><i class="fas fa-question-circle me-2"></i>FAQ</h3>
+
+            <div class="accordion" id="faqAccordion">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Apakah Emotify menggunakan server untuk memproses wajah?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            Tidak. Semua proses dilakukan langsung di browser Anda menggunakan Face-API.js — lebih cepat
+                            dan menjaga privasi.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
+                            Apakah Emotify aman digunakan?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Ya. Aplikasi ini tidak mengunggah gambar atau data wajah ke server manapun.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
+                            Apakah Emotify gratis?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Ya. Emotify adalah aplikasi gratis untuk belajar pendeteksian wajah & ekspresi menggunakan
+                            Face-API.js.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Emotify</h5>
+                    <p class="mb-0">Deteksi ekspresi wajah real-time langsung di browser menggunakan Face-API.js.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        Didukung oleh <a href="https://github.com/justadudewhohacks/face-api.js"
+                            class="text-success">Face-API.js</a>
+                        dan <a href="https://getbootstrap.com" class="text-success">Bootstrap 5</a>
+                    </p>
+                    <p class="mb-0 mt-2">&copy; 2026 Emotify. Hak cipta dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
