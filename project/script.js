@@ -36,13 +36,13 @@ const faceCount = document.getElementById("faceCount");
 
 //Emot
 const emotionStickers = {
-    neutral: "assets/stickers/Neutral.png",
-    happy: "assets/stickers/Happy.png",
-    sad: "assets/stickers/Sad.png",
-    angry: "assets/stickers/Angry.png",
-    fearful: "assets/stickers/Fearful.png",
-    disgusted: "assets/stickers/Disgusted.png",
-    surprised: "assets/stickers/Surprised.png"
+    neutral: "/Emot/Neutral.png",
+    happy: "/Emot/Happy.png",
+    sad: "/Emot/Sad.png",
+    angry: "/Emot/Angry.png",
+    fearful: "/Emot/Fearful.png",
+    disgusted: "/Emot/Disgusted.png",
+    surprised: "/Emot/Surprised.png"
 };
 
 // Warna emosi untuk UI
@@ -93,7 +93,7 @@ function initializeProgressBars() {
 // Perbarui tampilan emosi
 function updateEmotionDisplay(expressions) {
     if (!expressions || expressions.length === 0) {
-        dominantEmotion.textContent = "Tidak ada wajah terdeteksi"; 
+        dominantEmotion.textContent = "Tidak ada wajah terdeteksi";
         detectionStatus.textContent = "Posisikan wajah Anda di depan kamera";
         facesDetected.textContent = "0";
         detectionInfo.style.display = 'none';
@@ -104,27 +104,28 @@ function updateEmotionDisplay(expressions) {
     const expression = expressions[0].expressions;
 
     // Cari emosi dominan
+    // Cari emosi dominan dulu
     let dominant = { emotion: "neutral", value: 0 };
+
     Object.keys(expression).forEach(emotion => {
         if (expression[emotion] > dominant.value) {
             dominant.emotion = emotion;
             dominant.value = expression[emotion];
         }
+    });
 
+    // 🔥 TARUH LOGIKA INI DI LUAR LOOP
     if (dominant.emotion !== lastEmotion) {
-    lastEmotion = dominant.emotion;
-    emotionStartTime = Date.now();
-    stickerGenerated = false;
-    } 
-    else {
-    if (!stickerGenerated && Date.now() - emotionStartTime > 1500) 
-        {
+        lastEmotion = dominant.emotion;
+        emotionStartTime = Date.now();
+        stickerGenerated = false;
+    } else {
+        if (!stickerGenerated && Date.now() - emotionStartTime > 1500) {
             showSticker(dominant.emotion);
             stickerGenerated = true;
         }
     }
-    
-    });
+
 
     // Perbarui tampilan emosi dominan
     const dominantEmotionName = dominant.emotion.charAt(0).toUpperCase() + dominant.emotion.slice(1);
