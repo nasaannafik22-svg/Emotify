@@ -8,6 +8,9 @@ let lastUpdateTime = 0;
 let frameCount = 0;
 let fps = 0;
 let videoStream = null;
+let lastEmotion = null;
+let emotionStartTime = 0;
+let stickerGenerated = false;
 
 // Elemen DOM
 const video = document.getElementById("video");
@@ -30,6 +33,17 @@ const frequencyRange = document.getElementById("frequencyRange");
 const opacityRange = document.getElementById("opacityRange");
 const detectionInfo = document.getElementById("detectionInfo");
 const faceCount = document.getElementById("faceCount");
+
+//Emot
+const emotionStickers = {
+    neutral: "assets/stickers/Neutral.png",
+    happy: "assets/stickers/Happy.png",
+    sad: "assets/stickers/Sad.png",
+    angry: "assets/stickers/Angry.png",
+    fearful: "assets/stickers/Fearful.png",
+    disgusted: "assets/stickers/Disgusted.png",
+    surprised: "assets/stickers/Surprised.png"
+};
 
 // Warna emosi untuk UI
 const emotionColors = {
@@ -79,7 +93,7 @@ function initializeProgressBars() {
 // Perbarui tampilan emosi
 function updateEmotionDisplay(expressions) {
     if (!expressions || expressions.length === 0) {
-        dominantEmotion.textContent = "Tidak ada wajah terdeteksi";
+        dominantEmotion.textContent = "Tidak ada wajah terdeteksi"; 
         detectionStatus.textContent = "Posisikan wajah Anda di depan kamera";
         facesDetected.textContent = "0";
         detectionInfo.style.display = 'none';
@@ -96,6 +110,20 @@ function updateEmotionDisplay(expressions) {
             dominant.emotion = emotion;
             dominant.value = expression[emotion];
         }
+
+    if (dominant.emotion !== lastEmotion) {
+    lastEmotion = dominant.emotion;
+    emotionStartTime = Date.now();
+    stickerGenerated = false;
+    } 
+    else {
+    if (!stickerGenerated && Date.now() - emotionStartTime > 1500) 
+        {
+            showSticker(dominant.emotion);
+            stickerGenerated = true;
+        }
+    }
+    
     });
 
     // Perbarui tampilan emosi dominan
@@ -625,6 +653,32 @@ opacityRange.addEventListener('input', function () {
         overlay.getContext('2d').globalAlpha = parseFloat(this.value);
     }
 });
+// Buat Fungsi Tampilkan Sticker
+function showSticker(emotion) {
+    const stickerPreview = document.getElementById("stickerPreview");
+    const stickerPath = emotionStickers[emotion];
+
+    if (!stickerPath) return;
+
+    stickerPreview.src = stickerPath;
+}
+//Fungsi Download Sticker
+const downloadStickerBtn = document.getElementById("downloadStickerBtn");
+
+downloadStickerBtn.addEventListener("click", function () {
+    const stickerPreview = document.getElementById("stickerPreview");
+
+    if (!stickerPreview.src) {
+        alert("Belum ada sticker yang dihasilkan!");
+        return;
+    }
+
+    const link = document.createElement("a");
+    link.href = stickerPreview.src;
+    link.download = "emotion-sticker.png";
+    link.click();
+});
+
 
 // Inisialisasi aplikasi saat halaman dimuat
 window.addEventListener('DOMContentLoaded', initializeApp);
