@@ -42,7 +42,7 @@ const emotionStickers = {
     angry: "/Emot/Angry.png",
     fearful: "/Emot/Fearful.png",
     disgusted: "/Emot/Disgusted.png",
-    surprised: "/Emot/Surprised.png"
+    surprised: "/Emot/Suprised.png"
 };
 
 // Warna emosi untuk UI
